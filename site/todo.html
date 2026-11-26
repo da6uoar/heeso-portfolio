@@ -347,7 +347,7 @@ footer{border-top:1px solid var(--line)}
   </main>
   <dialog class="vd todod" id="todoDlg" aria-labelledby="todoTitle">
     <div class="vdh"><div><p class="vdk" id="todoWeek">이번 주 결론</p><h2 id="todoTitle">이번 주 만들 콘텐츠 3개</h2></div><button type="button" class="rotbtn" id="todoClose">닫기</button></div>
-    <div class="vdb"><ol class="todo" id="todoList"></ol></div>
+    <div class="vdb"><p class="todosum">숏폼은 원장이 '왜 그런지·나에게 뭐가 맞는지'를 짚어 주는 영상 반응이 커요.<br>눈 유형별 수술 추천 릴스 26.6만, 리투오 용량 릴스 25.5만, '끊어야 올라간다' 거상 원리 릴스 8.2만 조회예요.</p><ol class="todo" id="todoList"></ol></div>
   </dialog>
   <dialog class="vd" id="vd" aria-labelledby="vdTitle">
     <div class="vdh"><div><p class="vdk" id="vdKind"></p><h2 id="vdTitle"></h2></div><button type="button" class="rotbtn" id="vdClose">닫기</button></div>
@@ -709,6 +709,7 @@ html,body{background:#fff}
 .todo .tw{white-space:pre-line}
 
 .todo .tfh{margin:0;font-size:16px;line-height:1.55;font-weight:600}
+.todosum{margin:0 0 14px;padding:14px 16px;border-radius:16px;background:var(--surface-2);font-size:15px;line-height:1.65;font-weight:600;color:var(--ink);word-break:keep-all}
 </style>
 <script>
 (function(){const d=document.getElementById('todoDlg');d.setAttribute('open','');d.close=function(){};
