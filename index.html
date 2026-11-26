@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>윤다정 포트폴리오 시안 v3 | 희소성형외과 마케터 지원</title>
+<title>윤다정 포트폴리오 | 희소성형외과 마케터 지원</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=Inter:wght@500;600;700&family=Unbounded:wght@400;500&family=Gowun+Batang:wght@700&family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
@@ -17,13 +17,13 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:#d9d2cc;font-family:var(--kr);color:var(--ink);word-break:keep-all}
-  .page{width:1200px;height:848px;margin:40px auto;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.12);
+  .page{width:1280px;height:720px;margin:40px auto;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.12);
     background:
       radial-gradient(ellipse 70% 60% at 85% 15%,rgba(255,255,255,.75),transparent 70%),
       radial-gradient(ellipse 80% 70% at 10% 90%,rgba(255,196,160,.55),transparent 70%),
       linear-gradient(160deg,#ffd9c2 0%,#ffe9dc 45%,#fff4ec 70%,#ffd6bf 100%)}
-  .waves{position:absolute;inset:0;pointer-events:none}
-  .note{max-width:1200px;margin:0 auto 50px;font-size:13px;color:#5f5852;line-height:1.7}
+  .waves{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.waves path{vector-effect:non-scaling-stroke}
+  .note{max-width:1280px;margin:0 auto 50px;font-size:13px;color:#5f5852;line-height:1.7}
 
   /* ---------- 3D folder ---------- */
   .folder{position:absolute}
@@ -79,7 +79,7 @@
   .tools .g span::before{content:"● ● ●";color:var(--o2);letter-spacing:-.5px;margin-right:12px;font-size:9px;vertical-align:2px}
 
   /* ================= PROJECT PAGES (03~11) ================= */
-  .pg{padding:62px 80px 54px;display:flex;flex-direction:column}
+  .pg{padding:44px 80px 40px;display:flex;flex-direction:column}
   .pg>*:not(.waves){position:relative;z-index:1}
   .crumb{display:flex;justify-content:space-between;font-family:var(--wide);font-weight:500;font-size:13px;letter-spacing:.03em;color:#4a3d36}
   .crumb b{font-weight:600;color:var(--o4)}
@@ -494,6 +494,54 @@
   .page :is(p,li,small,td,th,.lab,.q,.big2,.card>b,.st>b,.rec b,.stats span,.tg,.t){letter-spacing:-.03em!important}
   .pf .who p{letter-spacing:-.04em!important}
   .pend .endband p,.pend .xp b{letter-spacing:-.03em!important}
+  /* 3페이지 제목 아래 소개 글씨 키우기 */
+  .p3 .intro{font-size:20px;line-height:1.85;width:640px}
+  .p3 .intro .lead{font-size:26px;margin-bottom:16px}
+  /* ===== 16:9 맞춤 ===== */
+  .cover .hd{top:48px}
+  .cover .big{font-size:332px}
+  .pf .pf-top{top:32px}
+  .pf .ttl{top:84px}
+  .pf .info{left:700px;top:76px;width:500px}
+  .pf .sec{margin-bottom:22px}
+  .pf .sec h4{margin-bottom:8px}
+  .pf .who{bottom:84px}
+  .p3 .ttl{top:50px}
+  .p3 .intro{top:196px}
+  .p3 .p3flow{bottom:42px}
+  .p3 .p3flow .st{min-height:190px}
+  .p3>.folder{top:96px!important}
+  .p11 .bd{grid-template-columns:250px 250px;gap:80px}
+  .p11 .slot,.p11 .slot.lg{width:250px}
+  .p4 .bd{padding-top:6px}
+  .p4 .col .ph{width:178px}
+  .p4 .col{gap:9px}
+  .pw .shotw .frm,.p6 .shot7 .frm,.p7m .shotm .frm{width:640px;height:496px}
+  .pw .shotw iframe,.p6 .shot7 iframe,.p7m .shotm iframe{width:740px;height:574px;transform:scale(.8649)}
+  .pw .bd,.p6 .bd{grid-template-columns:640px 1fr}
+  .p7m .bd{grid-template-columns:640px 1fr}
+  .bd{margin-top:20px}
+  /* ===== 스크롤 전환 버전 ===== */
+  html.deck.sd{height:auto;overflow-x:hidden;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:auto}
+  html.deck.sd body{height:auto;overflow:visible}
+  .sd-track{position:relative;z-index:-1;pointer-events:none}
+  .sd-track i{display:block;height:100vh;height:100dvh;scroll-snap-align:start;scroll-snap-stop:always}
+  html.sd #dkAll{display:none}
+  html.sd .dk-top,html.sd .dk-bot{display:none!important}
+  html.sd .page{top:50%}
+  .sd-dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:60;display:none;flex-direction:column;gap:10px}
+  html.sd .sd-dots{display:flex}
+  .sd-dots button{width:8px;height:8px;padding:0;border:0;border-radius:99px;background:rgba(42,32,26,.22);cursor:pointer;transition:height .35s cubic-bezier(.2,.8,.2,1),background .3s}
+  .sd-dots button[aria-current="true"]{height:26px;background:#E8732F}
+  .sd-dots button:hover{background:rgba(42,32,26,.45)}
+  .sd-dots button[aria-current="true"]:hover{background:#E8732F}
+  @media (max-width:700px){.sd-dots{right:8px;gap:7px}.sd-dots button{width:6px;height:6px}.sd-dots button[aria-current="true"]{height:18px}}
+  /* 전환은 기존 버전과 동일: 새 페이지 페이드인 + 내용 순차 등장 */
+  .sd-hint{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:60;display:none;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(42,32,26,.82);color:#fff;font-size:12.5px;font-weight:600;letter-spacing:-.02em;pointer-events:none;transition:opacity .4s}
+  html.sd .sd-hint{display:flex}
+  .sd-hint i{display:block;width:10px;height:16px;border:1.5px solid #fff;border-radius:6px;position:relative}
+  .sd-hint i::after{content:"";position:absolute;left:50%;top:3px;width:2px;height:4px;margin-left:-1px;border-radius:1px;background:#fff;animation:sdWheel 1.4s ease-in-out infinite}
+  @keyframes sdWheel{0%{transform:translateY(0);opacity:1}100%{transform:translateY(6px);opacity:0}}
 </style>
 </head>
 <body>
@@ -506,7 +554,7 @@
 
 <!-- ================= PAGE 1 : COVER ================= -->
 <section class="page cover">
-  <svg class="waves" viewBox="0 0 1200 848" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="5">
+  <svg class="waves" viewBox="0 0 1200 848" preserveAspectRatio="none" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="5">
     <path d="M -20 195 C 200 180, 300 280, 460 420 C 600 560, 720 600, 820 520 C 930 430, 1050 300, 1220 280"/>
     <path d="M -20 400 C 120 330, 260 280, 420 330 C 600 390, 700 510, 860 500 C 1000 490, 1100 380, 1220 300"/>
   </svg>
@@ -515,26 +563,26 @@
   <div class="hd hr">2026</div>
 
   <!-- 큰 폴더 + 태그 -->
-  <div class="folder" style="left:410px;top:186px;width:350px;height:332px">
+  <div class="folder" style="left:450px;top:112px;width:350px;height:332px">
     <div class="tab"></div><div class="back"></div>
     <div class="tag" style="left:262px;top:6px;transform:rotate(-15deg)">Story</div>
     <div class="front"></div>
     <div class="tag" style="left:-90px;top:80px;transform:rotate(5deg);z-index:3">Insight</div>
     <div class="tag" style="left:74px;top:300px;transform:rotate(-14deg)">Content</div>
   </div>
-  <svg class="cursor" style="left:762px;top:448px"><use href="#cur"/></svg>
+  <svg class="cursor" style="left:802px;top:374px"><use href="#cur"/></svg>
 
   <!-- 작은 폴더 -->
-  <div class="folder small" style="left:108px;top:346px;width:92px;height:80px"><div class="tab"></div><div class="back"></div><div class="front"></div><div class="lbl">희소성형외과</div></div>
-  <div class="folder small" style="left:1000px;top:166px;width:92px;height:80px"><div class="tab"></div><div class="back"></div><div class="front"></div><div class="lbl">병원 마케팅</div></div>
-  <div class="folder small" style="left:864px;top:508px;width:92px;height:80px"><div class="tab"></div><div class="back"></div><div class="front"></div><div class="lbl">영상 콘텐츠 기획</div></div>
+  <div class="folder small" style="left:130px;top:280px;width:92px;height:80px"><div class="tab"></div><div class="back"></div><div class="front"></div><div class="lbl">희소성형외과</div></div>
+  <div class="folder small" style="left:1060px;top:120px;width:92px;height:80px"><div class="tab"></div><div class="back"></div><div class="front"></div><div class="lbl">병원 마케팅</div></div>
+  <div class="folder small" style="left:1000px;top:318px;width:92px;height:80px"><div class="tab"></div><div class="back"></div><div class="front"></div><div class="lbl">영상 콘텐츠 기획</div></div>
 
   <div class="big"><span class="d">P</span><span class="w">o</span><span class="d">rtf</span><span class="d">o</span><span class="w">li</span><span class="d">o</span></div>
 </section>
 
 <!-- ================= PAGE 2 : PROFILE ================= -->
 <section class="page pf">
-  <svg class="waves" viewBox="0 0 1200 848" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="4">
+  <svg class="waves" viewBox="0 0 1200 848" preserveAspectRatio="none" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="4">
     <path d="M -20 470 C 160 430, 300 520, 470 500 C 640 480, 720 380, 880 400 C 1020 418, 1100 470, 1220 440"/>
   </svg>
 
@@ -600,7 +648,7 @@
 
 <!-- ================= PAGE 3 : PROJECT COVER ================= -->
 <section class="page p3">
-  <svg class="waves" viewBox="0 0 1200 848" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="4">
+  <svg class="waves" viewBox="0 0 1200 848" preserveAspectRatio="none" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="4">
     <path d="M -20 470 C 180 420, 330 520, 520 520 C 740 520, 860 380, 1220 420"/>
   </svg>
 
@@ -641,19 +689,19 @@
 
 <!-- ================= PAGE 11 : 완성 영상 ================= -->
 <section class="page pg p11">
-  <svg class="waves" viewBox="0 0 1200 848" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="4"><path d="M -20 260 C 200 200, 360 330, 600 300 C 840 270, 960 160, 1220 190"/></svg>
+  <svg class="waves" viewBox="0 0 1200 848" preserveAspectRatio="none" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="4"><path d="M -20 260 C 200 200, 360 330, 600 300 C 840 270, 960 160, 1220 190"/></svg>
   <div class="crumb"><span>Project / <b>01_result</b></span><span>04 / 09</span></div>
   <h3 class="hl"><em>희소 숏폼</em>, 결과부터 보여드립니다.</h3>
 
   <div class="bd">
     <div class="vs"><div class="slot"><video src="assets/reference.mp4" poster="assets/reference_poster.jpg" controls playsinline preload="metadata" title="참고한 원본 영상"></video></div><b>참고한 원본</b><small>아몬드성형외과 릴스 · 26.6만<br>눈 유형 5가지 · 65초</small></div>
-    <div class="vs"><div class="slot lg"><video src="assets/final.mp4" poster="assets/final_poster.jpg" controls playsinline preload="metadata"></video></div><b>완성한 희소 버전</b><small>코 유형 4가지 · 51초</small></div>
+    <div class="vs"><div class="slot lg"><video src="assets/final.mp4?v=5" poster="assets/final_poster.jpg?v=5" controls playsinline preload="metadata"></video></div><b>완성한 희소 버전</b><small>코 유형 4가지 · 51초</small></div>
   </div>
 </section>
 
 <!-- ================= PAGE 4 : 원칙 ================= -->
 <section class="page pg p4">
-  <svg class="waves" viewBox="0 0 1200 848" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="4"><path d="M -20 300 C 220 260, 360 380, 600 360 C 840 340, 960 250, 1220 270"/></svg>
+  <svg class="waves" viewBox="0 0 1200 848" preserveAspectRatio="none" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="4"><path d="M -20 300 C 220 260, 360 380, 600 360 C 840 340, 960 250, 1220 270"/></svg>
   <div class="crumb"><span>Project / <b>02_principle</b></span><span>05 / 09</span></div>
   <h3 class="hl">베끼면 남의 병원 영상이 되고,<br><em>후킹 포인트</em>만 가져오면 희소 영상이 됩니다</h3>
 
@@ -682,7 +730,7 @@
 
 <!-- ================= PAGE 5 : 매주 수집 ================= -->
 <section class="page pg pw">
-  <svg class="waves" viewBox="0 0 1200 848" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="4"><path d="M -20 640 C 200 590, 330 720, 520 710 C 760 696, 900 590, 1220 620"/></svg>
+  <svg class="waves" viewBox="0 0 1200 848" preserveAspectRatio="none" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="4"><path d="M -20 640 C 200 590, 330 720, 520 710 C 760 696, 900 590, 1220 620"/></svg>
   <div class="crumb"><span>Project / <b>03_collect</b></span><span>06 / 09</span></div>
   <h3 class="hl">매주 월요일 아침, <em>잘 된 성형외과 숏폼</em>이 알아서 모입니다</h3>
 
@@ -714,7 +762,7 @@
 
 <!-- ================= PAGE 7+8 : 만들기 ================= -->
 <section class="page pg p7m">
-  <svg class="waves" viewBox="0 0 1200 848" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="4"><path d="M -20 200 C 220 160, 380 300, 620 280 C 860 260, 980 160, 1220 180"/></svg>
+  <svg class="waves" viewBox="0 0 1200 848" preserveAspectRatio="none" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="4"><path d="M -20 200 C 220 160, 380 300, 620 280 C 860 260, 980 160, 1220 180"/></svg>
   <div class="crumb"><span>Project / <b>05_make</b></span><span>08 / 09</span></div>
   <h3 class="hl">참고 영상의 <em>후킹 포인트</em>를 읽고, 희소 버전 초안까지 만듭니다</h3>
 
@@ -731,7 +779,7 @@
 
 <!-- ================= PAGE 11 : 마무리 ================= -->
 <section class="page pg pend">
-  <svg class="waves" viewBox="0 0 1200 848" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="4"><path d="M -20 470 C 180 420, 330 520, 520 520 C 740 520, 860 380, 1220 420"/></svg>
+  <svg class="waves" viewBox="0 0 1200 848" preserveAspectRatio="none" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="4"><path d="M -20 470 C 180 420, 330 520, 520 520 C 740 520, 860 380, 1220 420"/></svg>
   <div class="crumb"><span>Closing / <b>why_me</b></span><span>09 / 09</span></div>
 
   <div class="folder" style="left:880px;top:150px;width:200px;height:190px">
@@ -769,7 +817,7 @@
 <div class="dk-bot">
   <div class="bar"><span id="dkBar"></span></div>
   <span class="sec" id="dkSec">표지</span>
-  <span class="hint">← → 키로 이동 · 카드에 마우스를 올려 보세요</span>
+  <span class="hint">스크롤 또는 ← → 키로 이동 · 카드에 마우스를 올려 보세요</span>
   <div class="arw"><button type="button" id="dkPrev" aria-label="이전 쪽">←</button><button type="button" id="dkNext" aria-label="다음 쪽">→</button></div>
 </div>
 <button type="button" class="stack-btn" id="dkDeck">슬라이드로 보기</button>
@@ -796,7 +844,7 @@
   const bars=[...document.querySelectorAll('.pc .track span')];bars.forEach(b=>b._w=b.style.width);
   function grow(p){if(!p.classList.contains('pc'))return;bars.forEach(b=>{b.style.transition='none';b.style.width='0';});void p.offsetWidth;
     bars.forEach((b,i)=>{b.style.transition='';setTimeout(()=>b.style.width=b._w,250+i*70)})}
-  function fit(){const k=Math.min((innerWidth-40)/1200,(innerHeight-94-24)/848);pages.forEach(p=>p.style.transform='translate(-50%,-50%) scale('+k+')')}
+  function fit(){const k=Math.min((innerWidth-40)/1280,(innerHeight-94-24)/720);pages.forEach(p=>p.style.transform='translate(-50%,-50%) scale('+k+')')}
   function show(i,push){
     i=Math.max(0,Math.min(N-1,i));
     pages[cur].querySelectorAll('video').forEach(v=>v.pause());
@@ -825,6 +873,39 @@
   addEventListener('hashchange',()=>{const k=parseInt(location.hash.slice(1),10);if(root.classList.contains('deck')&&k>=1&&k<=N&&k-1!==cur)show(k-1,false)});
   const h=parseInt(location.hash.slice(1),10);if(h>=1&&h<=N)cur=h-1;
   if(!window.matchMedia('print').matches&&!/[?&]all\b/.test(location.search))deck(true);
+  /* ===== 스크롤로 페이지 전환 ===== */
+  if(root.classList.contains('deck')){
+    root.classList.add('sd');
+    const track=document.createElement('div');track.className='sd-track';
+    for(let k=0;k<N;k++)track.appendChild(document.createElement('i'));
+    document.body.appendChild(track);
+    const hint=document.createElement('div');hint.className='sd-hint';hint.innerHTML='<i></i>스크롤해서 넘겨 보세요';document.body.appendChild(hint);
+    fit=function(){const k=Math.min((innerWidth-(innerWidth>700?110:28))/1280,(innerHeight-48)/720);pages.forEach(p=>p.style.transform='translate(-50%,-50%) scale('+k+')')};fit();
+    const dots=document.createElement('nav');dots.className='sd-dots';dots.setAttribute('aria-label','페이지');
+    pages.forEach((p,k)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',(k+1)+'페이지');b.onclick=()=>show(k);dots.appendChild(b)});
+    document.body.appendChild(dots);
+    const mark=()=>[...dots.children].forEach((b,k)=>b.setAttribute('aria-current',String(k===cur)));mark();
+    const _show=show;let tm=null;
+    const vh=()=>track.firstChild.getBoundingClientRect().height||innerHeight;
+    function go(i){
+      if(i===cur)return;const prev=pages[cur],dir=i>cur?'down':'up';
+      pages.forEach(p=>p.classList.remove('leaving','up','down'));
+      prev.classList.add('leaving',dir);pages[i].classList.add(dir);
+      _show(i);mark();clearTimeout(tm);tm=setTimeout(()=>{prev.classList.remove('leaving','up','down');pages[cur].classList.remove('up','down')},800);
+      hint.style.opacity='0';
+    }
+    show=function(i){i=Math.max(0,Math.min(N-1,i));scrollTo({top:i*vh(),behavior:'smooth'})};
+    addEventListener('scroll',()=>{const i=Math.max(0,Math.min(N-1,Math.round(scrollY/vh())));if(i!==cur)go(i)},{passive:true});
+    if(cur>0){hint.style.opacity='0';requestAnimationFrame(()=>scrollTo({top:cur*vh()}))}
+    /* 휠 한 번 = 한 페이지 (트랙패드 관성은 한 번으로 묶음) */
+    let busy=false,t0=0,last=0;
+    addEventListener('wheel',e=>{
+      if(e.ctrlKey)return;const dy=e.deltaY;if(Math.abs(dy)<2)return;
+      e.preventDefault();const now=performance.now();last=now;
+      if(busy)return;busy=true;t0=now;show(cur+(dy>0?1:-1));
+      (function wait(){const n=performance.now();if(n-t0>750&&n-last>160)busy=false;else setTimeout(wait,60)})();
+    },{passive:false});
+  }
 })();
 </script>
 </body>
