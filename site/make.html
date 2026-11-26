@@ -1,0 +1,130 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>만들기 시연</title>
+<style>
+@font-face{font-family:"Pretendard";src:url("fonts/pretendard.woff2") format("woff2");font-weight:45 920;font-display:swap}
+:root{--bg:#F7F3EF;--surface:#FFF;--surface-2:#FBF2EA;--line:#EEE5DB;--ink:#362D28;--ink-2:#574B44;--muted:#6C615A;--accent:#D2621F;--accent-ink:#B04A12}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg)}
+body{font-family:"Pretendard",-apple-system,sans-serif;color:var(--ink);word-break:keep-all;padding:20px}
+.wrap{background:var(--surface);border-radius:24px;padding:28px 28px 36px}
+h1{font-size:30px;font-weight:800;letter-spacing:-.6px;margin-bottom:18px}
+.sel{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.sel label{font-size:18px;font-weight:700}
+.sel select{font:inherit;font-size:18px;padding:16px 48px 16px 22px;border-radius:14px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);appearance:none;background-image:linear-gradient(45deg,transparent 50%,#574B44 50%),linear-gradient(135deg,#574B44 50%,transparent 50%);background-position:calc(100% - 22px) 52%,calc(100% - 16px) 52%;background-size:6px 6px;background-repeat:no-repeat}
+.panel{background:var(--surface-2);border-radius:20px;padding:22px 24px;margin-bottom:18px}
+.ref{font-size:17px;margin-bottom:16px}
+.ref a{color:var(--accent-ink);font-weight:700;margin-left:14px;text-decoration:underline;text-underline-offset:4px}
+.lab{display:block;font-size:15px;font-weight:700;color:var(--muted);margin:18px 0 10px}
+.lab:first-child{margin-top:0}
+.script{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 20px;height:260px;overflow:auto;white-space:pre-line;font-size:16px;line-height:1.75}
+.box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 20px;font-size:16px;line-height:1.6}
+h2{font-size:22px;font-weight:800;letter-spacing:-.4px;margin-bottom:6px}
+.desc{font-size:16px;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.src{background:#fff;border-radius:16px;padding:14px 18px;margin-bottom:16px}
+.src small{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+.src b{font-size:19px;line-height:1.5}
+.cand{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 22px;margin-top:12px}
+.cand small{display:block;font-size:16px;color:var(--ink-2)}
+.cand b{display:block;font-size:24px;font-weight:800;margin:4px 0 12px}
+.cand.on{border:2px solid var(--accent)}
+.use{font:inherit;font-size:15px;font-weight:700;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 18px;cursor:pointer}
+.cand.on .use{background:var(--accent);border-color:var(--accent);color:#fff}
+.out{border-top:1px solid var(--line);margin-top:26px;padding-top:24px}
+.lead{font-size:20px;font-weight:800;line-height:1.6;letter-spacing:-.3px}
+.out p.t{font-size:17px;line-height:1.7}
+.out ol{margin-left:24px;font-size:17px;line-height:1.8}
+.hl{background:var(--surface-2);border-radius:16px;padding:16px 22px;font-size:17px;font-weight:700;line-height:1.65}
+.seg{background:var(--surface-2);border:1px solid var(--line);border-radius:16px;padding:16px 22px;margin-bottom:12px}
+.seg b{display:block;color:var(--accent-ink);font-size:17px;margin-bottom:6px}
+.seg p{font-size:16px;line-height:1.65}
+.seg p.scn{font-size:14.5px;color:var(--muted);margin-bottom:4px}
+.post{background:var(--surface-2);border:1px solid var(--line);border-radius:16px;padding:18px 22px;white-space:pre-line;font-size:16px;line-height:1.7}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tags span{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px;color:var(--ink-2)}
+#note{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:12px;padding:10px 16px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none}
+#note.on{opacity:1}
+
+.step{display:flex;align-items:center;gap:10px;margin:28px 0 12px}
+.step:first-of-type{margin-top:6px}
+.step i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+.step h2{margin:0;font-size:21px}
+details{margin-top:12px}
+summary{cursor:pointer;font-size:15px;font-weight:700;color:var(--accent-ink);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸ ";}
+details[open] summary::before{content:"▾ ";}
+details .script{margin-top:10px;height:220px}
+.ref{margin-bottom:6px}
+.orig{font-size:15px;color:var(--muted)}
+.lead{font-size:18px}
+.copyrow{display:flex;justify-content:space-between;align-items:center;margin:18px 0 8px}
+.copyrow .lab{margin:0}
+.cp{font:inherit;font-size:13.5px;font-weight:700;border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 12px;cursor:pointer;color:var(--ink-2)}
+.utitle{background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:14px 18px;font-size:17px;font-weight:700;line-height:1.5}
+
+body{word-break:keep-all;overflow-wrap:break-word;line-break:strict}p,li,small,b,.box,.hl,.post,.seg p{text-wrap:pretty}h1,h2,h3{text-wrap:balance}
+</style></head><body>
+<div class="wrap">
+  <h1>만들기</h1>
+  <div class="sel"><label for="proc">시술</label><select id="proc"><option>코성형</option></select></div>
+
+  <div class="step"><i>1</i><h2>참고 영상</h2></div>
+  <div class="panel">
+    <p class="ref">내 눈에는 어떤 수술이 어울릴까? (26.6만회) <a href="#" class="noop">바꾸기</a></p>
+    <p class="orig">원본 구성: '이런 눈이라면' 훅 → 눈 유형 5가지별 추천 수술</p>
+    <details><summary>원본 대본 보기</summary><div class="script">[0:01] 이런 눈이라면 이 수술을 추천드릴게요.
+[0:02] 무쌍 플러스 눈 위에 지방이 있는 케이스.
+[0:05] 비절개 쌍수로 할 경우 풀릴 가능성이 사실 좀 있기 때문에 절개를 해서 확실하게 고정하는 걸 추천합니다.
+[0:11] 쌍눈 플러스 풀린 눈 케이스.
+[0:13] 자연유착. 쌍꺼풀이 생겼다 풀렸다 하면서 양쪽이 달라 보이네요. 이럴 때는 자연유착으로 라인을 또렷하게 하나로 정리를 하고 거기 눈매교정까지 더해진다면 좌우 달라지는 건 막을 수 있습니다.
+[0:25] 눈 밑이 볼록 튀어나온 케이스.
+[0:27] 눈밑지방재배치. 눈 밑에 불룩한 부분 그리고 눈물고랑 쪽은 꺼져 보이네요. 이런 경우에는 눈밑지방재배치로 최대한 평평하게 만들어주고 만약 앞볼까지 좀 꺼져 있는 경우라면 지방이식까지 같이 하는 게 도움이 됩니다.
+[0:40] 눈꼬리가 올라간 케이스.
+[0:42] 라이너 트임. 뒤 밑으로 눈꼬리를 내려주게 되면 뒤쪽의 흰자 면적도 확실하게 넓어 보이고 시원해 보이는 인상을 가질 수 있습니다.
+[0:51] 눈 앞머리가 답답한 케이스.
+[0:53] 앞트임. 몽고주름이 눈 앞을 가려서 많이 답답해 보일 때는 눈 사이 간격이랑 노출 정도 이런 것들을 고려해서 얼만큼 틀지를 결정하게 되면 훨씬 더 자연스러운 눈을 만들 수 있습니다.</div></details>
+  </div>
+
+  <div class="step"><i>2</i><h2>살릴 후킹 포인트</h2></div>
+  <div class="panel">
+    <p class="lead">'이런 코라면?'으로 시청자가 자기 코를 대입하게 만든 뒤, 케이스마다 수술명을 팝업으로 먼저 보여 주고 이유를 설명합니다.</p>
+    <p class="orig" style="margin-top:8px">눈 유형 5가지 → 희소 코성형 케이스 4가지(복코 · 콧구멍 큰 복코 · 비대칭 · 들창코)로 바꿔 씁니다.</p>
+  </div>
+
+  <div class="step"><i>3</i><h2>썸네일 제목 고르기</h2></div>
+  <div class="panel">
+    <div class="src"><small>참고 썸네일 문구</small><b>이런 눈이라면?<br>이 수술 추천드려요!</b></div>
+    <p class="desc" style="margin:0">희소 버전 후보 · 하나를 고르세요</p>
+    <div class="cand on"><small>이런 코라면?</small><b>이 수술 추천드려요!</b><button type="button" class="use">✓ 골랐어요</button></div><div class="cand"><small>내 코는 어떤 유형?</small><b>맞는 수술이 달라요!</b><button type="button" class="use">고르기</button></div><div class="cand"><small>복코 · 들창코 · 휜 코</small><b>수술법이 달라요!</b><button type="button" class="use">고르기</button></div>
+    <span class="lab">썸네일 구성</span>
+    <div class="box">윗줄 흰 글씨 + 둘째 줄 큰 글씨('추천드려요'는 희소 주황). 원장 정면 상반신, 아래쪽에 코 클로즈업 사진 박스. 사진은 수술 전 모습만 사용.</div>
+  </div>
+
+  <div class="step"><i>4</i><h2>영상 구성 · 51초</h2></div>
+  <div class="seg"><b>0-3초</b><p class="scn">화면·자료: 원장 정면 상반신 + 아래 코 클로즈업 사진 박스. &#x27;이 수술 추천드려요!&#x27;에서 120% 펀치 줌, 작은 흰 글씨 &#x27;뒤에 더 중요한 내용 있음&#x27;.</p><p>대사: 이런 코라면, 이 수술 추천드릴게요.</p><p>자막: 이런 코라면 → 이 수술 추천드려요!</p></div><div class="seg"><b>3-17초</b><p class="scn">화면·자료: 입 다문 대기 샷 + 1번 코 사진. 케이스명은 보이스오버, 수술명은 120% 팝업.</p><p>대사: 전체적으로 두툼한 복코 케이스. 복코 교정. 코끝 피하지방이 두껍고 연골이 벌어져 있어서 코가 전체적으로 뭉툭해 보이네요. 이럴 땐 코끝 피하지방을 정리하고, 벌어진 연골은 실로 모아 묶어서 코끝을 얇고 날렵하게 만들어줍니다.</p><p>자막: 1. 전체적으로 두툼한 복코 케이스 / 코끝을 얇고 날렵하게</p></div><div class="seg"><b>17-29초</b><p class="scn">화면·자료: 2번 사진(수술 전 모습만). 상단 라벨을 케이스 2로 교체.</p><p>대사: 콧구멍이 큰 복코 케이스. 무보형물 코성형. 콧대는 충분히 있으니까 인공 보형물 없이 무보형물로 진행합니다. 지지력이 강한 자가늑연골로 코끝을 세우고, 콧볼축소와 비순각 교정을 더해줍니다.</p><p>자막: 2. 콧구멍이 큰 복코 케이스 / 자가늑연골 · 콧볼축소 · 비순각 교정</p></div><div class="seg"><b>29-42초</b><p class="scn">화면·자료: 3번 사진(수술 전 모습만). 손짓 설명 컷은 쉼을 잘라 점프컷.</p><p>대사: 대칭이 안 맞는 코 케이스. 기능코성형. 이런 비대칭은 안쪽 비중격이 휜 비중격 만곡증인 경우가 많은데요. 기능코성형으로 휜 비중격을 바로잡고 절골로 콧대를 세워서, 비염과 미용을 한 번에 개선합니다.</p><p>자막: 3. 대칭이 안 맞는 코 케이스 / 비염과 미용을 한 번에</p></div><div class="seg"><b>42-51초</b><p class="scn">화면·자료: 4번 사진. 마지막 문장까지 같은 정면 컷으로 마무리.</p><p>대사: 정면에서 콧구멍이 많이 보이는 들창코 케이스. 비중격 연장술. 비중격 연장술로 코끝을 내린 뒤, 코끝날개연골에 단단히 고정해줘야 다시 들리는 걸 막을 수 있습니다.</p><p>자막: 4. 들창코 케이스 / 단단히 고정해야 다시 들리지 않아요</p></div>
+
+  <div class="step"><i>5</i><h2>올리기</h2></div>
+  <div class="copyrow"><span class="lab">업로드 제목</span><button type="button" class="cp" data-t="ut">복사</button></div>
+  <div class="utitle" id="ut">복코 · 들창코 · 휜 코, 내 코엔 어떤 수술이 맞을까? | 대전 희소성형외과</div>
+  <div class="copyrow"><span class="lab">게시글 문구</span><button type="button" class="cp" data-t="pt">복사</button></div>
+  <div class="post" id="pt">내 코에는 어떤 수술이 맞을까, 고민되시죠.
+
+코끝이 두툼한지, 콧구멍이 큰지, 좌우가 다른지, 들려 있는지에 따라 맞는 방법이 달라질 수 있습니다. 정확한 방법은 직접 진단 후 1:1 상담으로 정해집니다.
+
+희소성형외과는 대표원장이 직접 상담하고 수술합니다.
+
+📍 대전 서구 대덕대로 202 경구빌딩 8층 (갤러리아 타임월드 맞은편)
+🕘 월·화·목 10-19시 / 금 10-21시 / 토 10-16시 (수·일 휴진)
+📞 042-721-7600
+
+※ 수술 후 붓기, 멍, 비대칭, 염증, 구축 등의 부작용이 있을 수 있으며 개인에 따라 결과와 회복 기간이 다를 수 있습니다. 수술 전 충분한 상담을 받으시기 바랍니다.</div>
+  <div class="tags"><span>#대전코성형</span><span>#대전성형외과</span><span>#희소성형외과</span><span>#복코교정</span><span>#무보형물코성형</span><span>#기능코성형</span><span>#비중격연장술</span><span>#들창코</span></div>
+</div>
+<div id="note" role="status">포트폴리오용 시연 화면이에요</div>
+<script>
+const n=document.getElementById('note');let tm;
+function say(t){n.textContent=t;n.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>n.classList.remove('on'),1600)}
+document.querySelectorAll('.cand .use').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.cand').forEach(c=>{c.classList.remove('on');c.querySelector('.use').textContent='고르기'});const c=b.closest('.cand');c.classList.add('on');b.textContent='✓ 골랐어요';say('썸네일 제목을 골랐어요')}));
+document.querySelectorAll('.noop').forEach(a=>a.addEventListener('click',ev=>{ev.preventDefault();say('포트폴리오용 시연 화면이에요')}));
+document.querySelectorAll('.cp').forEach(b=>b.addEventListener('click',async()=>{const t=document.getElementById(b.dataset.t).innerText;try{await navigator.clipboard.writeText(t);say('복사했어요')}catch(e){say('이 화면에서는 복사가 막혀 있어요')}}));
+</script>
+</body></html>
